@@ -2,7 +2,6 @@ import { gql, GraphQLClient } from 'graphql-request'
 import Section from '../components/Section'
 import NavBar from '../components/NavBar'
 
-
 export const getStaticProps = async() => {
   const url = process.env.ENDPOINT
   const graphQLClient = new GraphQLClient(url, {
@@ -11,7 +10,7 @@ export const getStaticProps = async() => {
     }
   })
 
-  const query = gql`
+  const videosQuery = gql`
     query {
       videos {
         createdAt,
@@ -31,7 +30,7 @@ export const getStaticProps = async() => {
     }
   `
 
-  const data = await graphQLClient.request(query)
+  const data = await graphQLClient.request(videosQuery)
   const videos = data.videos
 
   return {
