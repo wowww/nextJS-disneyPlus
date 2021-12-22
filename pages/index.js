@@ -1,5 +1,6 @@
 import { gql, GraphQLClient } from 'graphql-request'
 import Section from '../components/Section'
+import video from './video/[slug]'
 
 export const getStaticProps = async() => {
   const url = process.env.ENDPOINT
@@ -44,6 +45,11 @@ const Home = ({ videos }) => {
   const randomVideo = (videos) => {
     return videos[Math.floor(Math.random() * videos.length)]
   }
+
+  const filterVideos = (videos, genre) => {
+    return videos.filter((video) => video.tags.includes(genre))
+  }
+
   return (
     <>
       <div className="app">
@@ -53,9 +59,8 @@ const Home = ({ videos }) => {
             alt={randomVideo(videos).title}
           />
         </div>
-      </div>
       <div className="video-feed">
-        <Section genre={'Family'} />
+        <Section genre={'Family'} videos={filterVideos(videos, 'family')} />
         <Section genre={'Thriller'} />
         <Section genre={'Classic'} />
         <Section genre={'Pixar'} />
@@ -63,6 +68,7 @@ const Home = ({ videos }) => {
         <Section genre={'National Geographic'} />
         <Section genre={'Disney'} />
         <Section genre={'Star Wars'} />
+      </div>
       </div>
 
 
