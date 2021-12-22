@@ -1,7 +1,7 @@
 import { gql, GraphQLClient } from 'graphql-request'
 import Section from '../components/Section'
-import video from './video/[slug]'
 import NavBar from '../components/NavBar'
+
 
 export const getStaticProps = async() => {
   const url = process.env.ENDPOINT
@@ -41,8 +41,9 @@ export const getStaticProps = async() => {
   }
 }
 
-
 const Home = ({ videos }) => {
+
+
   const randomVideo = (videos) => {
     return videos[Math.floor(Math.random() * videos.length)]
   }
@@ -74,7 +75,7 @@ const Home = ({ videos }) => {
           <Section genre={'Marvel'} videos={filterVideos(videos, 'marvel')} />
           <Section genre={'National Geographic'} videos={filterVideos(videos, 'national-geographic')} />
           <Section genre={'Disney'} videos={filterVideos(videos, 'disney')} />
-          <Section genre={'Star Wars'} videos={filterVideos(videos, 'star-wars')} />
+          <Section genre={'Romence'} videos={filterVideos(videos, 'romence')} />
         </div>
       </div>
 
