@@ -43,15 +43,18 @@ export const getStaticProps = async() => {
 
   const data = await graphQLClient.request(videosQuery)
   const videos = data.videos
+  const accountData = await graphQLClient.request(accountsQuery)
+  const account = accountData.account
 
   return {
     props: {
       videos,
+      account
     }
   }
 }
 
-const Home = ({ videos }) => {
+const Home = ({ videos, account }) => {
 
 
   const randomVideo = (videos) => {
@@ -68,7 +71,7 @@ const Home = ({ videos }) => {
 
   return (
     <>
-      <NavBar />
+      <NavBar account={account}/>
       <div className="app">
         <div className="main-video">
           <img 
