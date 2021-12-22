@@ -41,10 +41,20 @@ export const getStaticProps = async() => {
 
 
 const Home = ({ videos }) => {
-  console.log(videos)
+  const randomVideo = (videos) => {
+    return videos[Math.floor(Math.random() * videos.length)]
+  }
   return (
-    <div>
-    </div>
+    <>
+      <div className="app">
+        <div className="main-video">
+          <img 
+            src={randomVideo(videos).thumbnail.url} 
+            alt={randomVideo(videos).title}
+          />
+        </div>
+      </div>
+    </>
   )
 }
 export default Home
