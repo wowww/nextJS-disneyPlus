@@ -2,10 +2,10 @@ import { gql, GraphQLClient } from 'graphql-request'
 // import gql from 'graphql-tag'
 
 export const getStaticProps = async() => {
-  const url = "ContentAPI";
+  const url = process.env.ENDPOINT
   const graphQLClient = new GraphQLClient(url, {
     headers: {
-      "Authorization": "Bearer TokenValue"
+      "Authorization": process.env.GRAPH_CMS_TOKE
     }
   })
 
@@ -18,7 +18,13 @@ export const getStaticProps = async() => {
         description,
         seen,
         slug,
-        tags
+        tags,
+        thumbnail {
+          url
+        },
+        mp4 {
+          url
+        }
       }
     }
   `
