@@ -87,7 +87,7 @@ const Home = ({ videos, account }) => {
         </div>
         <div className="video-feed">
           <div className="link-wrap">
-            <Link href="#pixar"><div className="franchise" id="pixar">
+            <Link href="#pixar"><div className="franchise">
               <Image src={pixarLogo} />
             </div></Link>
             <Link href="#marvel"><div className="franchise" id="marvel">
@@ -101,10 +101,10 @@ const Home = ({ videos, account }) => {
             </div></Link>
           </div>
           <Section genre={'Recommeded for you'} videos={unSeenVideos(videos)} />
-          <Section id="family" genre={'Family'} videos={filterVideos(videos, 'family')} />
-          <Section id="thriller" genre={'Thriller'} videos={filterVideos(videos, 'thriller')} />
-          <Section id="classic" genre={'Classic'} videos={filterVideos(videos, 'classic')} />
-          <Section id="romence" genre={'Romence'} videos={filterVideos(videos, 'romence')} />
+          <Section genre={'Family'} videos={filterVideos(videos, 'family')} />
+          <Section genre={'Thriller'} videos={filterVideos(videos, 'thriller')} />
+          <Section genre={'Classic'} videos={filterVideos(videos, 'classic')} />
+          <Section genre={'Romence'} videos={filterVideos(videos, 'romence')} />
           <Section id="pixar" genre={'Pixar'} videos={filterVideos(videos, 'pixar')} />
           <Section id="marvel" genre={'Marvel'} videos={filterVideos(videos, 'marvel')} />
           <Section id="national-geographic" genre={'National Geographic'} videos={filterVideos(videos, 'national-geographic')} />
