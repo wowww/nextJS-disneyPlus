@@ -1,7 +1,12 @@
 import { gql, GraphQLClient } from 'graphql-request'
 import Link from 'next/link'
+import Image from 'next/image'
 import Section from '../components/Section'
 import NavBar from '../components/NavBar'
+import disneyLogo from '../public/disney-button.png'
+import marvelLogo from '../public/marvel-button.png'
+import natgeoLogo from '../public/natgeo-button.png'
+import pixarLogo from '../public/pixar.png'
 
 export const getStaticProps = async() => {
   const url = process.env.ENDPOINT
@@ -82,10 +87,18 @@ const Home = ({ videos, account }) => {
         </div>
         <div className="video-feed">
           <div className="link-wrap">
-            <Link href="#pixar"><div className="franchise" id="pixar"></div></Link>
-            <Link href="#marvel"><div className="franchise" id="marvel"></div></Link>
-            <Link href="#national-geographic"><div className="franchise" id="national-geographic"></div></Link>
-            <Link href="#disney"><div className="franchise" id="disney"></div></Link>
+            <Link href="#pixar"><div className="franchise" id="pixar">
+              <Image src={pixarLogo} />
+            </div></Link>
+            <Link href="#marvel"><div className="franchise" id="marvel">
+              <Image src={marvelLogo} />
+            </div></Link>
+            <Link href="#national-geographic"><div className="franchise" id="national-geographic">
+              <Image src={natgeoLogo} />
+            </div></Link>
+            <Link href="#disney"><div className="franchise" id="disney">
+              <Image src={disneyLogo} />
+            </div></Link>
           </div>
           <Section genre={'Recommeded for you'} videos={unSeenVideos(videos)} />
           <Section id="family" genre={'Family'} videos={filterVideos(videos, 'family')} />
