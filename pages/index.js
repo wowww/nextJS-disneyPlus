@@ -86,12 +86,28 @@ const Home = ({ videos, account }) => {
           />
         </div>
         <div className="video-feed">
+          <div className="link-wrap">
+            <Link href="#pixar"><div className="franchise">
+              <Image src={pixarLogo} />
+            </div></Link>
+            <Link href="#marvel"><div className="franchise" id="marvel">
+              <Image src={marvelLogo} />
+            </div></Link>
+            <Link href="#national-geographic"><div className="franchise" id="national-geographic">
+              <Image src={natgeoLogo} />
+            </div></Link>
+            <Link href="#disney"><div className="franchise" id="disney">
+              <Image src={disneyLogo} />
+            </div></Link>
+          </div>
           <Section genre={'Recommeded for you'} videos={unSeenVideos(videos)} />
           <Section genre={'Family'} videos={filterVideos(videos, 'family')} />
           <Section genre={'Thriller'} videos={filterVideos(videos, 'thriller')} />
           <Section genre={'Classic'} videos={filterVideos(videos, 'classic')} />
+          <Section genre={'Romence'} videos={filterVideos(videos, 'romence')} />
           <Section id="pixar" genre={'Pixar'} videos={filterVideos(videos, 'pixar')} />
           <Section id="marvel" genre={'Marvel'} videos={filterVideos(videos, 'marvel')} />
+          <Section id="national-geographic" genre={'National Geographic'} videos={filterVideos(videos, 'national-geographic')} />
           <Section id="disney" genre={'Disney'} videos={filterVideos(videos, 'disney')} />
         </div>
       </div>
