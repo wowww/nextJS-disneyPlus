@@ -19,5 +19,6 @@
   "devDependencies": {
     "eslint": "8.5.0",
     "eslint-config-next": "12.0.7"
-  }
+  },
+  "homepage": "https://wowww.github.io/disneyPlus"
 }
